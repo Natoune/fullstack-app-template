@@ -63,3 +63,7 @@ vite.config.*.timestamp*
 
 # Build outputs
 *.js.map
+
+# Capacitor
+android/
+ios/
