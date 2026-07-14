@@ -27,21 +27,23 @@
     "sourceRoot": "packages/shared/src",
     "targets": {
       "build": {
-        "executor": "@nx/js:swc",
+        "executor": "@nx/vite:rollup",
         "outputs": [
           "{options.outputPath}"
         ],
         "options": {
           "outputPath": "packages/shared/dist",
-          "main": "packages/shared/src/index.ts",
-          "tsConfig": "packages/shared/tsconfig.lib.json",
-          "skipTypeCheck": true,
-          "stripLeadingPaths": true
+          "project": "packages/shared/vite.config.ts",
+          "configFile": "packages/shared/vite.config.ts"
         }
       }
     }
   },
   "dependencies": {
     "@swc/helpers": "~0.5.18"
+  },
+  "devDependencies": {
+    "svelte": "^5.0.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0"
   }
 }

@@ -8,6 +8,14 @@ out-tsc
 # dependencies
 node_modules
 
+# pnpm
+.pnpm-store
+
+# lockfiles
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
 # IDEs and editors
 /.idea
 .project
@@ -49,3 +57,9 @@ Thumbs.db
 .nx/self-healing
 .nx/migrate-runs
 vite.config.*.timestamp*
+
+# SvelteKit
+.svelte-kit/
+
+# Build outputs
+*.js.map

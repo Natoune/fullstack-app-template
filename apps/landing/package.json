@@ -23,5 +23,12 @@
       }
     }
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@fullstack-app-template/shared": "0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  }
 }
