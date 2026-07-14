@@ -1,0 +1,96 @@
+{
+  "name": "@fullstack-app-template/frontend",
+  "version": "0.0.1",
+  "nx": {
+    "name": "frontend",
+    "tags": [
+      "web",
+      "mobile"
+    ],
+    "targets": {
+      "check": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "svelte-check",
+          "cwd": "apps/frontend"
+        }
+      },
+      "add": {
+        "executor": "@nxext/sveltekit:add"
+      },
+      "lint": {
+        "command": "eslint apps/frontend/**/*.{ts,svelte,spec.ts}"
+      },
+      "cap:add": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx cap add",
+          "cwd": "apps/frontend"
+        },
+        "configurations": {
+          "ios": {
+            "cmd": "npx cap add ios"
+          },
+          "android": {
+            "cmd": "npx cap add android"
+          }
+        }
+      },
+      "cap:sync": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx cap sync",
+          "cwd": "apps/frontend"
+        },
+        "configurations": {
+          "ios": {
+            "cmd": "npx cap sync ios"
+          },
+          "android": {
+            "cmd": "npx cap sync android"
+          }
+        }
+      },
+      "cap:open": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx cap open",
+          "cwd": "apps/frontend"
+        },
+        "configurations": {
+          "ios": {
+            "cmd": "npx cap open ios"
+          },
+          "android": {
+            "cmd": "npx cap open android"
+          }
+        }
+      },
+      "cap:copy": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx cap copy",
+          "cwd": "apps/frontend"
+        },
+        "configurations": {
+          "ios": {
+            "cmd": "npx cap copy ios"
+          },
+          "android": {
+            "cmd": "npx cap copy android"
+          }
+        }
+      }
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1"
+  },
+  "dependencies": {
+    "@sveltejs/adapter-static": "^3.0.10"
+  }
+}

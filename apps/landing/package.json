@@ -1,0 +1,27 @@
+{
+  "name": "@fullstack-app-template/landing",
+  "version": "0.0.1",
+  "nx": {
+    "name": "landing",
+    "tags": [
+      "web",
+      "landing"
+    ],
+    "targets": {
+      "check": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "svelte-check",
+          "cwd": "apps/landing"
+        }
+      },
+      "add": {
+        "executor": "@nxext/sveltekit:add"
+      },
+      "lint": {
+        "command": "eslint apps/landing/**/*.{ts,svelte,spec.ts}"
+      }
+    }
+  },
+  "type": "module"
+}

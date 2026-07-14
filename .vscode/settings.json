@@ -1,0 +1,15 @@
+{
+  "svelte.plugin.svelte.enable": true,
+  "svelte.plugin.svelte.hover.enable": true,
+  "svelte.plugin.svelte.codeActions.enable": true,
+  "svelte.plugin.svelte.diagnostics.enable": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "files.autoSave": "onFocusChange",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}

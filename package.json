@@ -1,19 +1,88 @@
 {
-  "name": "@org/source",
+  "name": "fullstack-app-template",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
   "private": true,
-  "dependencies": {},
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "nx run-many --target=serve --all --parallel",
+    "dev:app": "nx run-many --target=serve --all --exclude=landing --parallel",
+    "dev:landing": "nx run landing:serve",
+    "dev:frontend": "nx run frontend:serve",
+    "dev:backend": "nx run backend:serve",
+    "build": "nx run-many --target=build --all --parallel",
+    "build:landing": "nx run landing:build",
+    "build:frontend": "nx run frontend:build",
+    "build:backend": "nx run backend:build",
+    "lint": "nx run-many --target=lint --all --parallel",
+    "test": "nx run-many --target=test --all --parallel",
+    "serve": "nx run-many --target=serve --all --parallel",
+    "affected": "nx affected",
+    "affected:build": "nx affected --target=build",
+    "affected:test": "nx affected --target=test",
+    "affected:lint": "nx affected --target=lint",
+    "clean": "nx reset && rm -rf dist node_modules",
+    "cap:add:android": "nx run frontend:cap:add:android",
+    "cap:add:ios": "nx run frontend:cap:add:ios",
+    "cap:sync": "nx run frontend:sync"
+  },
   "devDependencies": {
-    "@nx/js": "23.0.1",
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1",
+    "@eslint/js": "^9.8.0",
+    "@nx/esbuild": "23.0.2",
+    "@nx/eslint": "23.0.2",
+    "@nx/eslint-plugin": "23.0.2",
+    "@nx/js": "23.0.2",
+    "@nx/node": "^23.0.2",
+    "@nx/vite": "23.0.2",
+    "@nx/web": "23.0.2",
+    "@nxext/sveltekit": "^23.0.0",
+    "@sveltejs/adapter-auto": "^7.0.0",
+    "@sveltejs/kit": "^2.20.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@swc-node/register": "1.11.1",
+    "@swc/cli": "~0.8.0",
     "@swc/core": "1.15.8",
     "@swc/helpers": "0.5.18",
     "@types/node": "^24.0.0",
-    "nx": "23.0.1",
+    "esbuild": "^0.27.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-svelte": "^3.20.0",
+    "jiti": "2.4.2",
+    "jsonc-eslint-parser": "^2.1.0",
+    "nx": "23.0.2",
     "prettier": "^3.8.1",
+    "svelte": "^5.0.0",
     "tslib": "^2.3.0",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.40.0",
+    "verdaccio": "^6.3.2",
+    "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "@fastify/autoload": "~6.0.3",
+    "@fastify/sensible": "~6.0.2",
+    "fastify": "~5.2.1",
+    "fastify-plugin": "~5.0.1"
+  },
+  "nx": {
+    "includedScripts": [],
+    "targets": {
+      "local-registry": {
+        "executor": "@nx/js:verdaccio",
+        "options": {
+          "port": 4873,
+          "config": ".verdaccio/config.yml",
+          "storage": "tmp/local-registry/storage"
+        }
+      }
+    }
   }
 }

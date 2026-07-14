@@ -1,2 +1,9 @@
 packages:
   - 'packages/*'
+  - 'landing'
+  - 'apps/*'
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  nx: true
+  unrs-resolver: true
