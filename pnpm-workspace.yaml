@@ -4,6 +4,8 @@ packages:
   - 'apps/*'
 allowBuilds:
   '@parcel/watcher': true
+  '@swc/core': true
   esbuild: true
   nx: true
+  svelte-preprocess: true
   unrs-resolver: true

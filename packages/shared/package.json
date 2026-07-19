@@ -1,49 +1,90 @@
 {
   "name": "@fullstack-app-template/shared",
   "version": "0.0.1",
-  "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "svelte": "./dist/components/index.js",
+      "import": "./dist/components/index.js"
+    },
+    "./components/*.svelte": {
+      "types": "./dist/components/*.d.ts",
+      "svelte": "./dist/components/*.svelte",
+      "import": "./dist/components/*.svelte"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js"
+    },
+    "./utils/*": {
+      "types": "./dist/utils/*.d.ts",
+      "import": "./dist/utils/*.js"
     }
   },
-  "files": [
-    "dist",
-    "!**/*.tsbuildinfo"
-  ],
   "nx": {
-    "name": "shared",
     "tags": [
       "shared",
       "ui",
-      "utils"
+      "utils",
+      "app"
     ],
-    "sourceRoot": "packages/shared/src",
     "targets": {
+      "check": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "svelte-check",
+          "cwd": "packages/shared"
+        }
+      },
+      "add": {
+        "executor": "@nxext/sveltekit:add"
+      },
+      "lint": {
+        "command": "eslint packages/shared/**/*.{ts,svelte,spec.ts}"
+      },
       "build": {
-        "executor": "@nx/vite:rollup",
-        "outputs": [
-          "{options.outputPath}"
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            "svelte-package",
+            "tsc --project tsconfig.app.json"
+          ],
+          "parallel": false,
+          "cwd": "packages/shared"
+        }
+      },
+      "serve": {
+        "executor": "nx:run-commands",
+        "dependsOn": [
+          "build"
         ],
         "options": {
-          "outputPath": "packages/shared/dist",
-          "project": "packages/shared/vite.config.ts",
-          "configFile": "packages/shared/vite.config.ts"
+          "commands": [
+            "svelte-package --watch --preserve-output",
+            "tsc-watch --project tsconfig.app.json --noClear"
+          ],
+          "parallel": true,
+          "cwd": "packages/shared"
         }
       }
     }
   },
-  "dependencies": {
-    "@swc/helpers": "~0.5.18"
-  },
   "devDependencies": {
-    "svelte": "^5.0.0",
-    "@sveltejs/vite-plugin-svelte": "^7.0.0"
-  }
+    "@sveltejs/package": "^2.5.8",
+    "@sveltejs/vite-plugin-svelte": "^7.2.0",
+    "@types/node": "^24.13.3",
+    "svelte-preprocess": "^6.0.5",
+    "tsc-watch": "^7.2.1",
+    "typescript": "~6.0.3",
+    "vite-plugin-dts": "^5.0.3"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "type": "module"
 }

@@ -1,1 +1,2 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@source "../../../packages/shared/dist/**/*.{html,js,svelte,ts}";

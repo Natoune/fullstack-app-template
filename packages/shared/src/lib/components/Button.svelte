@@ -1,18 +1,20 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import type { HTMLButtonAttributes } from 'svelte/elements';
 
-  interface Props {
+  export type Props = HTMLButtonAttributes & {
     variant?: 'primary' | 'secondary' | 'danger';
     size?: 'sm' | 'md' | 'lg';
     disabled?: boolean;
     children?: Snippet;
-  }
+  };
 
   let {
     variant = 'primary',
     size = 'md',
     disabled = false,
-    children
+    children,
+    ...restProps
   }: Props = $props();
 
   const baseClasses = `inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2`;
@@ -30,10 +32,10 @@
   };
 
   const computedClasses = $derived(
-    `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`
+    `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`,
   );
 </script>
 
-<button {disabled} class={computedClasses}>
+<button {disabled} class={computedClasses} {...restProps}>
   {@render children?.()}
 </button>

@@ -1,6 +1,7 @@
 # Fullstack App Template
 
 A modern fullstack application template built with:
+
 - **Frontend**: SvelteKit (Web + Mobile with Capacitor)
 - **Landing**: SvelteKit (Web only)
 - **Backend**: Fastify
@@ -11,7 +12,7 @@ A modern fullstack application template built with:
 
 ### Prerequisites
 
-- Node.js 20+ 
+- Node.js 20+
 - pnpm 9+
 
 ### Installation
@@ -65,13 +66,13 @@ fullstack-app-template/
 ├── packages/
 │   └── shared/           # Shared code between apps
 │       └── src/
-│           ├── lib/
-│           │   ├── components/  # Shared Svelte components
-│           │   │   ├── Button.svelte
-│           │   │   └── ApiDemo.svelte
-│           │   ├── types/       # TypeScript interfaces
-│           │   └── utils/       # Utility functions
-│           └── index.ts         # Public API
+│           └── lib/
+│               ├── components/  # Shared Svelte components
+│               │   ├── Button.svelte
+│               │   └── ApiDemo.svelte
+│               ├── types/       # TypeScript interfaces
+│               ├── utils/       # Utility functions
+│               └── index.ts         # Public API
 │
 └── package.json          # Root package.json
 ```
@@ -81,6 +82,7 @@ fullstack-app-template/
 ### Tailwind CSS
 
 Both `landing` and `frontend` apps use Tailwind CSS v4 for styling. The configuration files are:
+
 - `apps/landing/tailwind.config.js`
 - `apps/frontend/tailwind.config.js`
 
@@ -89,13 +91,15 @@ Both `landing` and `frontend` apps use Tailwind CSS v4 for styling. The configur
 The `shared` package contains reusable components and utilities:
 
 #### Components
+
 - **Button**: Customizable button with variants (primary, secondary, danger) and sizes (sm, md, lg)
-- **ApiDemo**: Demo component showing API calls to the backend
 
 #### Utilities
+
 - **api.ts**: API client with health check and greeting functions
 
 #### Types
+
 - **ApiResponse**: Standard response format
 - **HealthCheckResponse**: Backend health status
 - **GreetingResponse**: Greeting message from backend
@@ -103,6 +107,7 @@ The `shared` package contains reusable components and utilities:
 ### Backend API
 
 The backend provides these endpoints:
+
 - `GET /health` - Check backend health status
 - `GET /greet?name=...` - Get a personalized greeting
 
@@ -111,6 +116,7 @@ CORS is enabled for development.
 ### Frontend API Calls
 
 The frontend uses the Vite proxy configuration to call the backend:
+
 - Proxy: `/api/*` → `http://localhost:4000/*`
 
 ## 📱 Mobile Development (Capacitor)

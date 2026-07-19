@@ -1,5 +1,5 @@
-import { FastifyInstance } from 'fastify';
 import type { HealthCheckResponse } from '@fullstack-app-template/shared';
+import { FastifyInstance } from 'fastify';
 
 export default async function (fastify: FastifyInstance) {
   fastify.get('/health', async function () {

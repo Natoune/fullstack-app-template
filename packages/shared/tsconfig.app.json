@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo"
+  },
+  "include": ["src/lib/**/*", "src/ambient.d.ts"],
+  "exclude": ["out-tsc", "dist", "**/*.spec.ts", "**/*_spec.ts"]
+}

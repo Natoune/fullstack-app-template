@@ -9,5 +9,6 @@
     "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo"
   },
   "include": ["src/**/*"],
-  "exclude": ["out-tsc", "dist", "**/*.spec.ts", "**/*_spec.ts"]
+  "exclude": ["out-tsc", "dist", "**/*.spec.ts", "**/*_spec.ts"],
+  "references": []
 }

@@ -1,22 +1,15 @@
+import svelte from 'eslint-plugin-svelte';
 import baseConfig from '../../eslint.config.mjs';
 
 export default [
   ...baseConfig,
+  ...svelte.configs['recommended'],
   {
-    files: ['**/*.json'],
-    rules: {
-      '@nx/dependency-checks': [
-        'error',
-        {
-          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs,ts,cts,mts}'],
-        },
-      ],
-    },
+    files: ['**/*.svelte'],
     languageOptions: {
-      parser: await import('jsonc-eslint-parser'),
+      parserOptions: {
+        parser: await import('@typescript-eslint/parser'),
+      },
     },
-  },
-  {
-    ignores: ['**/out-tsc'],
   },
 ];

@@ -2,7 +2,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
 
 const sveltekitFix = async () => {
   const cwd = process.cwd();
@@ -15,11 +14,6 @@ const sveltekitFix = async () => {
 export default defineConfig(() => ({
   root: import.meta.dirname,
   cacheDir: '../../node_modules/.vite/apps/landing',
-  resolve: {
-    alias: {
-      '@fullstack-app-template/shared': resolve(__dirname, '../../../packages/shared/src'),
-    },
-  },
   server: {
     port: 4201,
     host: 'localhost',

@@ -5,7 +5,8 @@
     "name": "frontend",
     "tags": [
       "web",
-      "mobile"
+      "mobile",
+      "app"
     ],
     "targets": {
       "check": {
@@ -85,7 +86,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@fullstack-app-template/shared": "0.0.1",
+    "@fullstack-app-template/shared": "workspace:*",
     "@sveltejs/adapter-static": "^3.0.10"
   },
   "devDependencies": {

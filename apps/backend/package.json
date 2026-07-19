@@ -6,7 +6,8 @@
     "name": "backend",
     "tags": [
       "api",
-      "backend"
+      "backend",
+      "app"
     ],
     "targets": {
       "build": {
@@ -27,10 +28,18 @@
           "assets": [
             "apps/backend/src/assets"
           ],
+          "external": [
+            "@fullstack-app-template/shared/components/*",
+            "@fullstack-app-template/shared/components"
+          ],
           "esbuildOptions": {
             "sourcemap": true,
             "outExtension": {
               ".js": ".js"
+            },
+            "loader": {
+              ".svelte": "text",
+              ".html": "text"
             }
           }
         },
@@ -40,6 +49,10 @@
               "sourcemap": true,
               "outExtension": {
                 ".js": ".js"
+              },
+              "loader": {
+                ".svelte": "text",
+                ".html": "text"
               }
             }
           },
@@ -48,6 +61,10 @@
               "sourcemap": false,
               "outExtension": {
                 ".js": ".js"
+              },
+              "loader": {
+                ".svelte": "text",
+                ".html": "text"
               }
             }
           }
@@ -114,7 +131,7 @@
     "@fastify/cors": "^11.3.0",
     "@fastify/helmet": "^13.1.0",
     "@fastify/sensible": "~6.0.2",
-    "@fullstack-app-template/shared": "0.0.1",
+    "@fullstack-app-template/shared": "workspace:*",
     "fastify": "~5.2.1",
     "fastify-plugin": "~5.0.1"
   }

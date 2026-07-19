@@ -1,6 +1,10 @@
 <script lang="ts">
+  import { Button } from '@fullstack-app-template/shared/components';
+  import {
+    checkHealth,
+    getGreeting,
+  } from '@fullstack-app-template/shared/utils/api';
   import type { Snippet } from 'svelte';
-  import { checkHealth, getGreeting } from '../utils/api';
 
   interface Props {
     children?: Snippet;
@@ -50,13 +54,9 @@
   <!-- Health Check Section -->
   <div class="border rounded-lg p-4">
     <h3 class="font-medium text-gray-700 mb-2">Health Check</h3>
-    <button
-      onclick={fetchHealth}
-      disabled={healthLoading}
-      class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-    >
+    <Button onclick={fetchHealth} disabled={healthLoading} variant="primary">
       {healthLoading ? 'Checking...' : 'Check Backend Health'}
-    </button>
+    </Button>
 
     {#if healthStatus}
       <p class="mt-2 text-green-600 text-sm">{healthStatus}</p>
@@ -77,13 +77,13 @@
         placeholder="Enter your name"
         class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       />
-      <button
+      <Button
         onclick={fetchGreeting}
         disabled={greetingLoading}
-        class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        class="bg-green-600 text-white hover:bg-green-700 focus:ring-green-500"
       >
         {greetingLoading ? 'Fetching...' : 'Get Greeting'}
-      </button>
+      </Button>
     </div>
 
     {#if greetingMessage}
