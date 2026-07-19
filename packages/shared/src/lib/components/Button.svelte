@@ -32,10 +32,10 @@
   };
 
   const computedClasses = $derived(
-    `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`,
+    `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${restProps.class || ''}`,
   );
 </script>
 
-<button {disabled} class={computedClasses} {...restProps}>
+<button {...restProps} {disabled} class={computedClasses}>
   {@render children?.()}
 </button>
