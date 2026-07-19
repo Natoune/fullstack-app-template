@@ -10,5 +10,9 @@
   },
   "include": ["src/**/*"],
   "exclude": ["out-tsc", "dist", "**/*.spec.ts", "**/*_spec.ts"],
-  "references": []
+  "references": [
+    {
+      "path": "../../packages/shared/tsconfig.app.json"
+    }
+  ]
 }

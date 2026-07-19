@@ -27,6 +27,7 @@
     }
   },
   "nx": {
+    "name": "shared",
     "tags": [
       "shared",
       "ui",

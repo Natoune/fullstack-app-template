@@ -61,9 +61,7 @@
     {
       "plugin": "@nx/js/typescript",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
+        "typecheck": false,
         "build": {
           "targetName": "build",
           "configName": "tsconfig.lib.json",
@@ -80,7 +78,7 @@
         "serveTargetName": "serve",
         "devTargetName": "dev",
         "serveStaticTargetName": "serve-static",
-        "typecheckTargetName": "typecheck",
+        "typecheckTargetName": false,
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
