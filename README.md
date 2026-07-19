@@ -19,16 +19,16 @@ A modern fullstack application template built with:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/natoune/fullstack-app-template
 cd fullstack-app-template
 
 # Install dependencies
 pnpm install
 
-# Build shared package first
-pnpm --filter @fullstack-app-template/shared build
+# Build shared package for the first time
+pnpm build:shared
 
-# Start all applications
+# Start all applications (watch mode)
 pnpm dev
 ```
 
@@ -43,6 +43,9 @@ pnpm dev:frontend
 
 # Start backend API (port 4000)
 pnpm dev:backend
+
+# Start frontend/backend (without landing)
+pnpm dev:app
 ```
 
 ## 📁 Project Structure
@@ -68,8 +71,7 @@ fullstack-app-template/
 │       └── src/
 │           └── lib/
 │               ├── components/  # Shared Svelte components
-│               │   ├── Button.svelte
-│               │   └── ApiDemo.svelte
+│               │   └── Button.svelte
 │               ├── types/       # TypeScript interfaces
 │               ├── utils/       # Utility functions
 │               └── index.ts         # Public API
@@ -83,8 +85,8 @@ fullstack-app-template/
 
 Both `landing` and `frontend` apps use Tailwind CSS v4 for styling. The configuration files are:
 
-- `apps/landing/tailwind.config.js`
-- `apps/frontend/tailwind.config.js`
+- `apps/landing/src/app.css`
+- `apps/frontend/src/app.css`
 
 ### Shared Components
 
@@ -170,6 +172,7 @@ The GitHub Actions workflow uses pnpm for dependency management and NX for task 
 | `pnpm dev:landing` | Start landing page |
 | `pnpm dev:frontend` | Start frontend app |
 | `pnpm dev:backend` | Start backend API |
+| `pnpm dev:app` | Start backend/frontend |
 | `pnpm build` | Build all applications |
 | `pnpm lint` | Run linting |
 | `pnpm test` | Run tests |
@@ -187,4 +190,4 @@ The GitHub Actions workflow uses pnpm for dependency management and NX for task 
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
